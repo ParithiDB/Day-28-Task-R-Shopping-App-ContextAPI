@@ -1,6 +1,6 @@
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { Nav } from 'react-bootstrap';
 
 function Header({brandName = '', brandLogo = '', count = ''}) {
@@ -26,12 +26,16 @@ function Header({brandName = '', brandLogo = '', count = ''}) {
       <Nav className="justify-content-end">
         <Nav.Item>
           <Nav.Link>
-             <Link to='/' className='me-2'>Home</Link>
+             <NavLink to='/' className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "link active-link" : "link"}>Home</NavLink>
           </Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link>
-            <Link to='/cart'>Cart</Link>
+            <NavLink to='/cart' className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "link active-link" : "link"}>
+                Cart
+              </NavLink>
           </Nav.Link>
         </Nav.Item>
       </Nav>

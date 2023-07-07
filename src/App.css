@@ -72,3 +72,39 @@
     box-shadow:  0 0 10px 0 rgba(0,0,0,5);
   }
 }
+
+.footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  background-color: rgb(0, 0, 0);
+  opacity: 1 !important;
+}
+
+.cartPage {
+  margin-bottom: 300px;
+}
+
+.link {
+  width: 100px;
+  height: 40px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(2, 2, 2);
+  > p {
+    margin: 0px;
+  }
+}
+
+.active-link {
+  background: rgb(71, 181, 255);
+  border-radius: 16px;
+  color: white;
+}
+
+.pending {
+  color: red;
+  font-weight: bolder;
+}

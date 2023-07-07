@@ -13,12 +13,15 @@ export default function CartContextProvider({children}) {
 
     function handleQuantity(id = 0, type = '') {
         const cartCopy = [...cart];
-        const matchedData = cartCopy.find((d) => d.id === id);
-        if(matchedData) {
-            if (type === 'decrement' && matchedData.quantity > 1) {
-                matchedData.quantity--;
+        
+        const matchedDataIndex = cartCopy.findIndex((d) => d.id === id);
+        if(matchedDataIndex !== -1) {
+            if (type === 'decrement' && cartCopy[matchedDataIndex].quantity > 1) {
+                cartCopy[matchedDataIndex].quantity--;
             } else if (type === 'increment') {
-                matchedData.quantity++;
+                cartCopy[matchedDataIndex].quantity++;
+            } else if (type === 'remove') {
+                cartCopy.splice(matchedDataIndex, 1)
             }
             setCart(cartCopy);
         }
@@ -26,6 +29,8 @@ export default function CartContextProvider({children}) {
             alert('No data found');
         }
     }
+
+   
 
     const value = {
         cart,
